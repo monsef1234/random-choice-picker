@@ -55,3 +55,15 @@ textarea {
 .bg {
   background-color: blue !important;
 }
+.copie {
+  display: inline-block;
+  cursor: copy;
+}
+.container small {
+  margin-top: 15px;
+  display: block;
+  font-weight: bold;
+  color: orange;
+  text-align: center;
+  text-decoration: underline;
+}

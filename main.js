@@ -45,3 +45,8 @@ text.addEventListener("keyup", (eo) => {
     });
   }
 });
+const copy = document.querySelector(".copie");
+copy.addEventListener("click", (eo) => {
+  alert("Copied");
+  navigator.clipboard.writeText(copy.textContent.slice(3, 4));
+});
