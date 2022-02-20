@@ -1,5 +1,6 @@
 const text = document.querySelector("#text");
 const choices = document.querySelector(".choices");
+console.log(Math.round(Math.random()));
 text.addEventListener("keyup", (eo) => {
   const arr = text.value
     .trim()
@@ -13,12 +14,16 @@ text.addEventListener("keyup", (eo) => {
   spans.forEach((span) => {
     if (span.textContent != "") {
       span.classList.add("choice");
+    } else {
+      span.remove();
+    }
+    if (span.textContent === " ") {
+      span.remove();
     }
   });
   if (eo.key === "Enter") {
     text.value = "";
     const spans = document.querySelectorAll(".choices span");
-
     spans.forEach((span) => {
       const stopIt = setInterval(() => {
         const random = Math.floor(Math.random() * spans.length);
@@ -26,7 +31,6 @@ text.addEventListener("keyup", (eo) => {
       }, 100);
       const sds = setInterval(() => {
         const random = Math.floor(Math.random() * spans.length);
-        console.log(random);
         spans[random].classList.remove("bg");
       }, 100);
       setTimeout(() => {
@@ -48,5 +52,7 @@ text.addEventListener("keyup", (eo) => {
 const copy = document.querySelector(".copie");
 copy.addEventListener("click", (eo) => {
   alert("Copied");
-  navigator.clipboard.writeText(copy.textContent.slice(3, 4));
+  setTimeout(() => {
+    navigator.clipboard.writeText(copy.textContent.slice(3, 4));
+  }, 100);
 });
